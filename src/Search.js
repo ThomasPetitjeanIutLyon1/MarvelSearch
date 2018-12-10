@@ -10,7 +10,7 @@ class Search extends React.Component {
     this.state = {
       charactersList: null,
       url: "https://gateway.marvel.com/v1/public/characters",
-      apiKey: "?apikey=0038ab31b0f5cf4248d880c6edbc9764&offset=", //ATTENTION A NE PAS PUSHER
+      apiKey: "?apikey=[APIKEY]&offset=", //ATTENTION A NE PAS PUSHER
       searchResultPart: null,
       loading: true,
       offset: 0

@@ -30,3 +30,42 @@
     transform: rotate(360deg);
   }
 }
+
+/* CUSTOM */
+.content {
+  padding: 25px;
+  text-align: center;
+}
+
+.logo {
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.searchInput {
+  max-width: 55%;
+}
+
+.searchResult {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resultCard {
+  max-width: 300px;
+  max-height: 700px;
+}
+
+.characterItem {
+  margin: 15px;
+}
+
+.card-image img {
+  height: 300px;
+  width: 300px;
+}
+
+.card-title {
+  color: #2e2e2e !important;
+}

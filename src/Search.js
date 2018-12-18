@@ -8,11 +8,11 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      charactersList: null,
+      charactersList: [],
       url: "https://gateway.marvel.com/v1/public/characters",
       apiKey: "?apikey=[APIKEY]&offset=", //ATTENTION A NE PAS PUSHER
-      searchResultPart: null,
       loading: true,
+      searchValue: "",
       offset: 0
     };
     this.onInit();
@@ -24,7 +24,8 @@ class Search extends React.Component {
 
   addOffset = () => {
     this.setState({
-      offset: this.state.offset + 20
+      offset: this.state.offset + 20,
+      loading: true
     });
     this.fetchDataFromAPI();
   };
@@ -39,27 +40,42 @@ class Search extends React.Component {
             : json.data.results,
           loading: false
         })
+        
       );
   };
 
+  updateItemList = (evt) => {
+      this.setState({
+          searchValue: evt.target.value.substr(0,20),
+      })
+  }
+
   render() {
+    let filteredItems = this.state.charactersList.filter(
+        (chara) => {
+            return chara.name.indexOf(this.state.searchValue) !== -1;
+        }
+    );
+
     return (
       <div className="content">
         <img className="logo" src="logo.png" />
         <br />
         <input
           type="text"
+          value={this.state.searchValue}
           className="searchInput"
           placeholder="Rechercher..."
+          onChange={this.updateItemList}
         />
         <br />
         {this.state.charactersList && (
-          <CharacterList list={this.state.charactersList} />
+          <CharacterList list={filteredItems} />
         )}
         {this.state.charactersList && (
           <BottomScrollListener onBottom={this.addOffset} />
         )}
-        {this.state.loading && <ProgressBar />}
+        {this.state.loading && <ProgressBar className="red" />}
       </div>
     );
   }

@@ -25,7 +25,7 @@ class SearchItem extends React.Component {
               }
             />
           }
-          actions={[<a href="#">Détails</a>]}
+          actions={[<a href="#" class="detailsLabel">Détails</a>]}
         >
           {this.state.character.name}
         </Card>

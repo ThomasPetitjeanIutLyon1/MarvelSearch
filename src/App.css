@@ -46,6 +46,19 @@
   max-width: 55%;
 }
 
+.searchInput:focus {
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 red !important;
+}
+
+.detailsLabel {
+    color: red !important;
+}
+
+.detailsLabel:hover {
+    color: #ff3838 !important;
+}
+
 .searchResult {
   display: flex;
   justify-content: center;

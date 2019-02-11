@@ -34,6 +34,7 @@ class DetailPage extends React.Component {
 		return (
 			<div className="container">
 				<ComicDescription character={this.state.character} />
+				<h1>Apparition dans les commics</h1>
 				<Carousel
 					images={[
 						'https://lorempixel.com/250/250/nature/1',

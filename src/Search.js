@@ -10,7 +10,7 @@ class Search extends React.Component {
     this.state = {
       charactersList: [],
       url: "https://gateway.marvel.com/v1/public/characters",
-      apiKey: "?apikey=[APIKEY]&offset=", //ATTENTION A NE PAS PUSHER
+      apiKey: "?apikey=0038ab31b0f5cf4248d880c6edbc9764&offset=", //ATTENTION A NE PAS PUSHER
       loading: true,
       searchValue: "",
       offset: 0
@@ -40,22 +40,19 @@ class Search extends React.Component {
             : json.data.results,
           loading: false
         })
-        
       );
   };
 
-  updateItemList = (evt) => {
-      this.setState({
-          searchValue: evt.target.value.substr(0,20),
-      })
-  }
+  updateItemList = evt => {
+    this.setState({
+      searchValue: evt.target.value.substr(0, 20)
+    });
+  };
 
   render() {
-    let filteredItems = this.state.charactersList.filter(
-        (chara) => {
-            return chara.name.indexOf(this.state.searchValue) !== -1;
-        }
-    );
+    let filteredItems = this.state.charactersList.filter(chara => {
+      return chara.name.indexOf(this.state.searchValue) !== -1;
+    });
 
     return (
       <div className="content">
@@ -69,9 +66,7 @@ class Search extends React.Component {
           onChange={this.updateItemList}
         />
         <br />
-        {this.state.charactersList && (
-          <CharacterList list={filteredItems} />
-        )}
+        {this.state.charactersList && <CharacterList list={filteredItems} />}
         {this.state.charactersList && (
           <BottomScrollListener onBottom={this.addOffset} />
         )}

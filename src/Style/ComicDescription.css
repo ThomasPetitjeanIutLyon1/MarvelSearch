@@ -1,0 +1,21 @@
+.mainDiv {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.descrition {
+	display: flex;
+	flex-direction: column;
+}
+.title {
+	font-size: 19;
+	font-weight: 'bold';
+}
+.activeTitle {
+	color: 'red';
+}

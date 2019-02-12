@@ -1,7 +1,8 @@
 import React from 'react';
 import ComicDescription from '../Components/ComicDescription';
 import '../Style/DetailPage.css';
-import { Carousel } from 'react-materialize';
+import { ProgressBar } from 'react-materialize';
+import { MediaBox } from 'react-materialize';
 
 class DetailPage extends React.Component {
 	constructor(props) {
@@ -9,13 +10,15 @@ class DetailPage extends React.Component {
 
 		this.state = {
 			url: 'https://gateway.marvel.com/v1/public/characters/',
-			apiKey: '?apikey=0038ab31b0f5cf4248d880c6edbc9764', //ATTENTION A NE PAS PUSHER
+			apiKey: '?apikey=28eaf05072bfa7e8bd854d769e3dd9de', //ATTENTION A NE PAS PUSHER
 			datas: {
 				picUrl: 'https://images-na.ssl-images-amazon.com/images/I/41XX8Bzd4vL._SX425_.jpg',
 				title: 'Captain America',
 				description: 'The first avenger'
 			},
-			character: {}
+			character: {},
+			charaLoaded: false,
+			comicImgs: []
 		};
 	}
 
@@ -25,7 +28,20 @@ class DetailPage extends React.Component {
 			.then((response) => response.json())
 			.then((json) =>
 				this.setState({
-					character: json.data.results
+					character: json.data.results,
+					charaLoaded: true,
+					comicImgs: this.state.comicImgs.concat("lel")
+				})
+			);
+	}
+
+	fetchComic(resourceURI) {
+		console.log("Fetching with ResURI: " + resourceURI)
+		fetch(resourceURI + this.state.apiKey)
+			.then((response) => response.json())
+			.then((json) =>
+				this.setState({
+					comicImgs: this.state.comicImgs.concat(json.data.results[0].images.map((img) => (img.path + img.extension)))
 				})
 			);
 	}
@@ -34,16 +50,7 @@ class DetailPage extends React.Component {
 		return (
 			<div className="container">
 				<ComicDescription character={this.state.character} />
-				<h1>Apparition dans les commics</h1>
-				<Carousel
-					images={[
-						'https://lorempixel.com/250/250/nature/1',
-						'https://lorempixel.com/250/250/nature/2',
-						'https://lorempixel.com/250/250/nature/3',
-						'https://lorempixel.com/250/250/nature/4',
-						'https://lorempixel.com/250/250/nature/5'
-					]}
-				/>
+				{this.state.comicImgs ? console.log("true img") : console.log("false img")}
 			</div>
 		);
 	}

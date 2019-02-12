@@ -20,8 +20,8 @@ export default class ComicDescription extends Component {
 										'.' +
 										this.props.character[0].thumbnail.extension
 									) : (
-										''
-									)
+											''
+										)
 								}
 							/>
 						}

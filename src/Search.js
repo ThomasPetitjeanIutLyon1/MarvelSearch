@@ -11,7 +11,7 @@ class Search extends React.Component {
 		this.state = {
 			charactersList: [],
 			url: 'https://gateway.marvel.com/v1/public/characters',
-			apiKey: '?apikey=0038ab31b0f5cf4248d880c6edbc9764&offset=', //ATTENTION A NE PAS PUSHER
+			apiKey: '?apikey=28eaf05072bfa7e8bd854d769e3dd9de&offset=', //ATTENTION A NE PAS PUSHER
 			loading: true,
 			searchValue: '',
 			offset: 0
@@ -37,7 +37,8 @@ class Search extends React.Component {
 				charactersList: this.state.charactersList
 					? this.state.charactersList.concat(json.data.results)
 					: json.data.results,
-				loading: false
+				loading: false,
+
 			})
 		);
 	};

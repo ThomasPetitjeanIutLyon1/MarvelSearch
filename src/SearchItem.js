@@ -34,7 +34,7 @@ class SearchItem extends React.Component {
 					}
 					actions={[
 						<span onClick={this.handleClick} className="detailsLabel">
-							Détails
+							DETAILS
 						</span>
 					]}
 				>

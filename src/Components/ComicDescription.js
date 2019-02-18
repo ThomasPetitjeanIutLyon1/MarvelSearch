@@ -4,8 +4,6 @@ import { CardTitle, Card, Col } from 'react-materialize';
 
 export default class ComicDescription extends Component {
 	render() {
-		console.log('character', this.props.character);
-
 		return (
 			<div className="mainDiv">
 				<Col m={12} s={12} className="fullWidth">

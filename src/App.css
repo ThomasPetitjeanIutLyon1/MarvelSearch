@@ -81,3 +81,30 @@
 .card-title {
   color: #2e2e2e !important;
 }
+
+/* SEARCH */
+.red.btnSearch {
+  margin-left: 1%
+}
+
+.detailsLabel {
+  cursor: pointer;
+}
+
+
+/* DETAIL */
+.comicContainer {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  flex-wrap: wrap
+}
+
+.comicImg {
+  margin-bottom:1%
+}
+
+.red.btnBack {
+  margin: 1%;
+  align-self: flex-start;
+}
